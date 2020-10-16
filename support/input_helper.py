@@ -3,9 +3,9 @@ import pandas as pd
 
 ROOT_DIR = "RawData"
 
-def get_data(filename, dir = ROOT_DIR, force_download = False):
+def get_data(filename, directory=ROOT_DIR, force_download=False):
     """Download Excel dataset
-    
+
     Parameters
     ----------
     filename: string (optional)
@@ -14,12 +14,11 @@ def get_data(filename, dir = ROOT_DIR, force_download = False):
         Root_dir, location of the data
     force_download: bool (optional)
         if True, force redownload of data
-    
+
     Returns
     -------
     data: pandas.DataFrame
     """
-    
     if force_download or not os.path.exists(filename):
-        data = pd.ExcelFile(os.path.join(dir, filename))
+        data = pd.ExcelFile(os.path.join(directory, filename))
     return data
